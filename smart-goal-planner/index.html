@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Goal Planner</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <h1>Smart Goal Planner</h1>
+    
+    <div class="statisticts">
+        <h2>Overview</h2>
+        <p>Total Goals: <span id="total-goals">0</span></p>
+        <p>Total Saved: <span id="total-saved">0</span></p>
+        <p>Completed Goals: <span id="completed-goals">0</span></p>
+    </div>
+    
+    <h2>Add A New Goal</h2>
+    <form id="goal-form">
+       <input type="text" id="goal-name" placeholder="Goal Name" required>
+         <input type="number" id="target-amount" placeholder="Target Amount" required>
+        <input type="date" id="target-date" required>
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Travel">Travel</option>
+            <option value="Emergency">Emergency</option>
+            <option value="Education">Education</option>
+            <option value="Home">Home</option>
+            <option value="Other">Other</option>
+        </select>
+    
+        <button type="submit">Add Goal</button>
+    </form>
+    
+    <h2>Make Deposit</h2>
+    <form id="deposit-form">
+        <input type="text" id="goal-id" placeholder="Goal ID" required>
+        <input type="number" id="deposit-amount" placeholder="Deposit Amount" required>
+        <button type="submit">Make Deposit</button>
+    </form>
+    
+    <h2>Goals List</h2>
+    <div id="goals-list">
+        <ul>
+            <!-- Goals will be dynamically added here -->
+        </ul>
+    </div>
+    </body>
+  </body>
+</html>
+
+
+
+  
+</head>
+<body>
+</html>
