@@ -1,25 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect, use} from "react";
+import GoalForm from "./components/GoalForm";
+import GoalList from "./components/GoalList";
+import DepositForm from "./components/DepositForm";
+import Overview from "./components/Overview";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [goals, setGoals] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/goals')
+        .then(response => response.json())
+        ,then(setGoals);
+    }, []);
+
+    return (
+        <div className="App">
+            <h1>Goal Tracker</h1>
+            <GoalForm setGoals={setGoals} />
+            <DepositForm setGoals={setGoals} />
+            <Overview goals={goals} />
+            <GoalList goals={goals} setGoals={setGoals} />
+        </div>
+    );
 }
+
+const useFetchGoals = () => {
+    const [goals, setGoals] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/goals')
+            .then(response => response.json())
+            .then(setGoals);
+    }, []);
+
+    return goals;
+};
+
+const API_URL = 'http://localhost:3001/goals';
 
 export default App;
